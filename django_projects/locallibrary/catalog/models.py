@@ -93,6 +93,8 @@ class Author(models.Model):
     class Meta:
         ordering = ['last_name', 'first_name']
     
+
+    #saem sa parti kan t click lor ene author dna la list la li return toi to a page with more info on the author
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
         return reverse('author-detail', args=[str(self.id)])

@@ -1,19 +1,19 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Book List</h1>
-  {% if book_list %}
+  <h1>Author List</h1>
+  {% if author_list %}
   <ul>
-    {% for book in book_list %}
+    {% for author in author_list %}
       <li>
           <!-- Access fields of the associated book by using the . 
                 We can also call functions in the model from within the template
                 in this case book.get etc... is used to get the URL that will be used to display the associated detail record-->
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+        <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{author.first_name}} ({{author.date_of_birth}} - {{author.date_of_death}})</a>
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no books in the library.</p>
+    <p>There are no authors in the library.</p>
   {% endif %}       
 {% endblock %}
